@@ -1,7 +1,7 @@
 <?php
 class database{
-    public function connect(){
-        return new PDO("mysql=host:localhost;dbname:salon","","root");
+    public function connection(){
+        return new PDO("mysqli=host:localhost;dbname:salon","root","");
     }
 }
 ?>

@@ -1,9 +1,26 @@
 <?php
-include 'config/connect.php';
-include 'classes/auth.php';
-$database = (new database)->connect();
+include '../config/connect.php';
+include '../classes/auth.php';
+$database = (new database)->connection();
 $table = new auth($database);
-
+function sanitize($data){
+$data = stripslashes($data);
+$data = trim($data);
+$data = htmlspecialchars($data ,ENT_QUOTES);
+return $data;
+}
+if(isset($_POST['signup'])){
+    $name = sanitize($_POST['name']);
+    $email = sanitize($_POST['email']);
+    $pass = $_POST['password'];
+    $cpass = $_POST['cpassword'];
+    if($pass==$cpass){
+        $table->register(2,$name,$email,$password);
+    }
+    else{
+        echo "<script>password and confirm password are not same!!</script>";
+    }
+}
 ?>
 
 
@@ -40,13 +57,13 @@ $table = new auth($database);
         <div class="col-lg-6 mb-5 mb-lg-0">
           <div class="card">
             <div class="card-body py-5 px-md-5">
-              <form>
+              <form method="post">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-12 mb-4">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1"> Name</label>
+                      <input type="text" id="form3Example1" class="form-control" required />
+                      <label class="form-label" name="name" for="form3Example1"> Name</label>
                     </div>
                   </div>
                   
@@ -54,14 +71,19 @@ $table = new auth($database);
 
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
+                  <input type="email" id="form3Example3" class="form-control" required />
+                  <label class="form-label" name="email" for="form3Example3">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Password</label>
+                  <input type="password" id="form3Example4" class="form-control" required />
+                  <label class="form-label" name="password" for="form3Example4">Password</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="password" id="form3Example4" class="form-control" required />
+                  <label class="form-label" name="cpassword" for="form3Example4">Confirm Password</label>
                 </div>
 
                 <!-- Checkbox -->
@@ -71,7 +93,7 @@ $table = new auth($database);
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+                <button type="submit" name="signup" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
                   Sign up
                 </button>
 

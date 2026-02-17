@@ -4,9 +4,10 @@ class auth{
     public function __construct($db){
         $this->db = $db;
     }
-    public function register($name,$email,$password){
+    public function register($roleid,$name,$email,$password){
+        $password  = password_hash($password);
         $q = $this->db->prepare(["INSERT INTO `users`( `role_id`, `user_name`, `user_email`, `user_password`) VALUES (?,?,?,?)"]);
-        $q->execute([2,$name,$email,$password]); 
+        $q->execute([$roleid,$name,$email,$password]); 
     }
 }
 ?>
