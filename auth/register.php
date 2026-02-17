@@ -1,3 +1,12 @@
+<?php
+include 'config/connect.php';
+include 'classes/auth.php';
+$database = (new database)->connect();
+$table = new auth($database);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,18 +43,13 @@
               <form>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
-                  <div class="col-md-6 mb-4">
+                  <div class="col-md-12 mb-4">
                     <div data-mdb-input-init class="form-outline">
                       <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
+                      <label class="form-label" for="form3Example1"> Name</label>
                     </div>
                   </div>
-                  <div class="col-md-6 mb-4">
-                    <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
-                    </div>
-                  </div>
+                  
                 </div>
 
                 <!-- Email input -->
