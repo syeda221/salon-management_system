@@ -62,10 +62,8 @@
 
                 <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                  <label class="form-check-label" for="form2Example33">
-                    Subscribe to our newsletter
-                  </label>
+                             <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="login.php">login</a>
+
                 </div>
 
                 <!-- Submit button -->
@@ -74,24 +72,7 @@
                 </button>
 
                 <!-- Register buttons -->
-                <div class="text-center">
-                  <p>or sign up with:</p>
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-facebook-f"></i>
-                  </button>
-
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-google"></i>
-                  </button>
-
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-
-                  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-github"></i>
-                  </button>
-                </div>
+                
               </form>
             </div>
           </div>
