@@ -10,5 +10,6 @@ class auth{
          $q->execute([$roleid,$name,$email,$password]); 
         return $q->fetchAll(PDO::FETCH_ASSOC);
     }
+    // public function logout()
 }
 ?>
