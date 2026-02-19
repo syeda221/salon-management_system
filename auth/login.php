@@ -1,5 +1,7 @@
 <?php
-
+include '../classes/auth.php';
+include '../config/connect.php';
+$database = 
 ?>
 
 <!DOCTYPE html>
