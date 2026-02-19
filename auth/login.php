@@ -13,11 +13,16 @@ if(isset($_POST['login'])){
     $_SESSION['email'] = $user['user_email'];
     $_SESSION['role'] = $user['role_id'];
     if($_SESSION['role']== 1){
-      header("location:../admin/dashboad.php");
-    }elseif()
+      header("location:../admin/dashboard.php");
+    }elseif($_SESSION['role']== 2){
+      header("location:../receptionist/index.php");
+    }elseif($_SESSION['role']== 3){
+      header("location:../staff/index.php");
+
+    }
   }
   else{
-    echo "<script>alert('not')</script>";
+    echo "<script>alert('email or password is not correct')</script>";
   }
 }
 

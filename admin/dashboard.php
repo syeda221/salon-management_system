@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['role'] != 1){
+    header("location:../auth/login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
