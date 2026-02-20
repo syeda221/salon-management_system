@@ -1,4 +1,7 @@
-<?php include 'db.php'; ?>
+<?php include '../config/connect.php'; 
+$conn = ( new database)->connection();
+?>
+
 
 <form method="GET">
     Select Date:
@@ -25,8 +28,8 @@ $result = $conn->query($query);
 
 echo "<h3>Available Slots</h3>";
 
-while($row = $result->fetch_assoc()){
-    echo "<a href='book.php?date=$date&slot=".$row['id']."'>
+while($row = $result->fetch()){
+    echo "<a href='oppointment.php?date=$date&slot=".$row['id']."'>
             ".$row['slot_time']."
           </a><br>";
 }

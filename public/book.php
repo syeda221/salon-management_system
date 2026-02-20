@@ -24,7 +24,7 @@ for($i = 0; $i < 7; $i++){
 $date = date('Y-m-d', strtotime("+$i days"));
 $label = date('D d M', strtotime($date));
 
-echo "<a href='available-slots.php?date=$date'><botton class='col-1'>$label<button></a><br>";
+echo "<a href='available_slots.php?date=$date'><botton class='col-1'>$label<button></a><br>";
 }
 ?>
 
