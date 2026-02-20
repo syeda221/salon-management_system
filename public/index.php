@@ -77,12 +77,15 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
-                     <ul class="email">
+                  <div class=" book col-xl-5 col-lg-5 col-md-5 col-sm-5">
+                     <!-- <ul class="email">
                         <li><a href="#">Call: (+71) 1234567890</a></li>
-                        <li><a href="#">Email: demo@gmail.com</a></li>
+                        <li><a href="#">Get Your Appointment</a></li>
                         <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                     </ul>
+                     </ul> -->
+                     <a href="book.php" class="auto-ml">
+                        <button class="btn">Get Your Appointment</button>
+                     </a>
                   </div>
                </div>
             </div>

@@ -359,7 +359,14 @@ ul.btn li:last-child {
 ul.email li {
      display: inline-block;
 }
-
+.book {
+     display: flex;
+     justify-content: end;
+}
+.book .btn{
+     background-color: #BD193B;
+     color: white;
+}
 ul.email li a {
      padding: 0 8px;
      color: #1b1a1b;
