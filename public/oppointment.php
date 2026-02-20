@@ -37,7 +37,7 @@ Staff:
 <select name="staff_id">
 <?php
 $res = $conn->query("SELECT * FROM staff");
-while($s = $res->fetch_assoc()){
+while($s = $res->fetch()){
 echo "<option value='{$s['id']}'>{$s['name']}</option>";
 }
 ?>
