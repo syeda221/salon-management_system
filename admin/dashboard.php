@@ -63,48 +63,49 @@ if($_SESSION['role'] != 1){
                             <span class="nxl-micon"><i class="feather-airplay"></i></span>
                             <span class="nxl-mtext">Dashboards</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
+                        <!-- <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="index.html">CRM</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="analytics.html">Analytics</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-cast"></i></span>
-                            <span class="nxl-mtext">Reports</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Appointments</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
+                        <!-- <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="reports-sales.html">Sales Report</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="reports-leads.html">Leads Report</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="reports-project.html">Project Report</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Timesheets Report</a></li>
-                        </ul>
+                        </ul> -->
+                        
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-send"></i></span>
-                            <span class="nxl-mtext">Applications</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">CLients</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
+                        <!-- <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="apps-chat.html">Chat</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="apps-email.html">Email</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="apps-tasks.html">Tasks</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="apps-notes.html">Notes</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="apps-storage.html">Storage</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="apps-calendar.html">Calendar</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-at-sign"></i></span>
-                            <span class="nxl-mtext">Proposal</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Staff</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
+                        <!-- <ul class="nxl-submenu">
                             <li class="nxl-item"><a class="nxl-link" href="proposal.html">Proposal</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="proposal-view.html">Proposal View</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="proposal-edit.html">Proposal Edit</a></li>
                             <li class="nxl-item"><a class="nxl-link" href="proposal-create.html">Proposal Create</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
@@ -120,26 +121,25 @@ if($_SESSION['role'] != 1){
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-users"></i></span>
-                            <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Services</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="customers.html">Customers</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="customers-view.html">Customers View</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="customers-create.html">Customers Create</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="customers.html">Add Services</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="customers-view.html">All Services</a></li>
+                            <!-- <li class="nxl-item"><a class="nxl-link" href="customers-create.html">Customers Create</a></li> -->
                         </ul>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-alert-circle"></i></span>
-                            <span class="nxl-mtext">Leads</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Inventory</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="leads.html">Leads</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="leads-view.html">Leads View</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="leads-create.html">Leads Create</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="leads.html">Add Inventory</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="leads-view.html">All Inventory</a></li>
                         </ul>
                     </li>
-                    <li class="nxl-item nxl-hasmenu">
+                    <!-- <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-briefcase"></i></span>
                             <span class="nxl-mtext">Projects</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -271,7 +271,7 @@ if($_SESSION['role'] != 1){
                         <p class="fs-11 my-3 text-dark">Duralux is a production ready CRM to get started up and running easily.</p>
                         <a href="https://www.themewagon.com/themes/Duralux-admin" target="_blank" class="btn btn-primary text-dark w-100">Download Now</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </nav>
@@ -1717,7 +1717,7 @@ if($_SESSION['role'] != 1){
             <div class="header-right ms-auto">
                 <div class="d-flex align-items-center">
                     <div class="dropdown nxl-h-item nxl-header-search">
-                        <a href="javascript:void(0);" class="nxl-head-link me-0" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <!-- <a href="javascript:void(0);" class="nxl-head-link me-0" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             <i class="feather-search"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-search-dropdown">
@@ -1747,9 +1747,9 @@ if($_SESSION['role'] != 1){
                                         <a href="javascript:void(0);" class="flex-fill border rounded py-1 px-2 text-center fs-11 fw-semibold">Storage</a>
                                         <a href="javascript:void(0);" class="flex-fill border rounded py-1 px-2 text-center fs-11 fw-semibold">Calendar</a>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="dropdown-divider"></div>
-                                <div class="recent-result px-4 py-2">
+                                <!-- <div class="recent-result px-4 py-2">
                                     <h4 class="fs-13 fw-normal text-gray-600 mb-3">Recnet <span class="badge small bg-gray-200 rounded ms-1 text-dark">3</span></h4>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
@@ -1793,8 +1793,8 @@ if($_SESSION['role'] != 1){
                                             <a href="javascript:void(0);" class="badge border rounded text-dark">P /<i class="feather-command ms-1 fs-10"></i></a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="dropdown-divider my-3"></div>
+                                </div> -->
+                                <!-- <!-- <div class="dropdown-divider my-3"></div>
                                 <div class="users-result px-4 py-2">
                                     <h4 class="fs-13 fw-normal text-gray-600 mb-3">Users <span class="badge small bg-gray-200 rounded ms-1 text-dark">5</span></h4>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -1867,8 +1867,8 @@ if($_SESSION['role'] != 1){
                                             <i class="feather-chevron-right"></i>
                                         </a>
                                     </div>
-                                </div>
-                                <div class="dropdown-divider my-3"></div>
+                                </div> -->
+                                <!-- <div class="dropdown-divider my-3"></div>
                                 <div class="file-result px-4 py-2">
                                     <h4 class="fs-13 fw-normal text-gray-600 mb-3">Files <span class="badge small bg-gray-200 rounded ms-1 text-dark">3</span></h4>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -2050,8 +2050,8 @@ if($_SESSION['role'] != 1){
                             <div class="text-center timesheets-footer">
                                 <a href="javascript:void(0);" class="fs-13 fw-semibold text-dark">Alls Timesheets</a>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> 
                     <div class="dropdown nxl-h-item">
                         <a class="nxl-head-link me-3" data-bs-toggle="dropdown" href="#" role="button" data-bs-auto-close="outside">
                             <i class="feather-bell"></i>
@@ -2063,9 +2063,9 @@ if($_SESSION['role'] != 1){
                                 <a href="javascript:void(0);" class="fs-11 text-success text-end ms-auto" data-bs-toggle="tooltip" title="Make as Read">
                                     <i class="feather-check"></i>
                                     <span>Make as Read</span>
-                                </a>
-                            </div>
-                            <div class="notifications-item">
+                                </a>-->
+                            <!-- </div>
+                            <div class="notifications-item"> 
                                 <img src="../asset/dashboard/images/avatar/2.png" alt="" class="rounded me-3 border" />
                                 <div class="notifications-desc">
                                     <a href="javascript:void(0);" class="font-body text-truncate-2-line"> <span class="fw-semibold text-dark">Malanie Hanvey</span> We should talk about that at lunch!</a>
@@ -2225,8 +2225,8 @@ if($_SESSION['role'] != 1){
                                         </span>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="dropdown-divider"></div>
+                            </div> -->
+                            <!-- <div class="dropdown-divider"></div>
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="feather-user"></i>
                                 <span>Profile Details</span>
@@ -2253,7 +2253,7 @@ if($_SESSION['role'] != 1){
                                 <span>Logout</span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!--! [End] Header Right !-->
