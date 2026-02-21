@@ -10,8 +10,8 @@ class services{
         return $q->fetch();
     }
       public function addservices($name,$img,$price){
-        $q = $this->db->prepare("insert into services values(?,?,?,?)");
-        $q->execute(null,$name,$img,$price);
+        $q = $this->db->prepare("insert into services (service_name,services_img,price) values(?,?,?)");
+        $q->execute([$name,$img,$price]);
         
     }
       public function delservices($id){
