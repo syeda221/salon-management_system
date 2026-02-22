@@ -14,12 +14,19 @@ class services{
         $q->execute([$name,$img,$price]);
         
     }
-      public function delservices($id){
+      public function delservice($id){
         $q = $this->db->prepare("DELETE FROM `services` WHERE id=?");
         $q->execute($id);
         
     }
-        public function ediservices($id,$name,$img,$price){
+    
+     public function ediid($id){
+        $q = $this->db->prepare("DELETE FROM `services` WHERE id=?");
+        $q->execute($id);
+       return $q->fetch();
+        
+    }
+    public function ediservice($id,$name,$img,$price){
         $q = $this->db->prepare("UPDATE `services` SET`service_name`=?,`services_img`=?,`price`=? WHERE  `id`=?");
         $q->execute($name,$img,$price,$id);
         
