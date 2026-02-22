@@ -7,7 +7,7 @@ class services{
     public function allservice(){
         $q = $this->db->prepare("select * from services");
         $q->execute();
-        return $q->fetch();
+        return $q->fetchAll();
     }
       public function addservices($name,$img,$price){
         $q = $this->db->prepare("insert into services (service_name,services_img,price) values(?,?,?)");
