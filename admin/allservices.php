@@ -9,22 +9,24 @@ $conn = ( new database)->connection();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-  
+  <section class="allservices">
+  <div class="container">
 
-<div class="container m-auto">
-  <div class="row">
-  <div class="row"><div class="col-7">All Services</div></div>
-  <div class="col-12 m-auto">
-<div class="card  m-auto">
-  <div class="card-body row">
-    <div class="img col-2 border"></div>
-    <h5 class="card-title col-9 ">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn col-2 text-right btn-primary">Button</a>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-3">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
   </div>
-  </div>
 </div>
 </div>
-</div>
+</section>
 </body>
 </html>
