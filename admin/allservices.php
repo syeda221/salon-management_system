@@ -170,37 +170,10 @@ h2 {
         </div>
     </div>   
 
-<div id="myModal" class="modal fade">
-	 <div class="modal-dialog modal-login">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="avatar">
-					<img src="/examples/images/avatar.png" alt="Avatar">
-				</div>				
-				<h4 class="modal-title">Member Login</h4>	
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class="modal-body">
-				<form action="/examples/actions/confirmation.php" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" name="service"  >		
-					</div>
-					<div class="form-group">
-						<input type="file" class="form-control" name="image" >	
-					</div> 
-          <div class="form-group">
-						<input type="number" class="form-control" name="price"  >	
-					</div>        
-					<div class="form-group">
-						<button type="submit" name="edit" class="btn btn-primary btn-lg btn-block login-btn">Edit</button>
-					</div>
-				</form>
-			</div>
+
 			
 		</div>
-	</div>
-</div>     
-
+	
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
