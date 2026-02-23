@@ -27,8 +27,8 @@ class services{
         
     }
     public function ediservice($id,$name,$img,$price){
-        $q = $this->db->prepare("UPDATE `services` SET`service_name`=?,`services_img`=?,`price`=? WHERE  `id`=?");
-        $q->execute($name,$img,$price,$id);
+        $q = $this->db->prepare("UPDATE `services` SET `service_name`=?,`services_img`=?,`price`=? WHERE  `id`=?");
+        $q->execute([$name,$img,$price,$id]);
         
     }
 }

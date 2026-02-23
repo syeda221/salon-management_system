@@ -4,8 +4,11 @@ $conn = ( new database)->connection();
 $table = new services($conn);
 
 $id = $_GET['id'];
+
 $data = $table->ediid($id);
-echo $id;
+
+    if($data){
+    
 if(isset($_POST['edit'])){
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -13,9 +16,9 @@ if(isset($_POST['edit'])){
     if(!empty($_FILES['image']['name'])){
         $image = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
-        move_uploaded_file($image_tmp ,"../asset/images/service".$image );
+        move_uploaded_file($image_tmp ,"../asset/images/service/".$image );
     }
-    $table->ediservice($id,$name,$price,$image);
+    $table->ediservice($id,$name,$image,$price);
     header("location:allservices.php");
 }
 ?>
@@ -32,9 +35,7 @@ if(isset($_POST['edit'])){
         <h1 class="m-auto mb-5 mt-5 col-5">Add New Service</h1>
         </div>
 <div class="row">
-    <?php
-    if($data){
-    ?>
+    
     <form class="m-auto col-6" method="post" enctype="multipart/form-data">
   <div class="form-row">
     <div class="form-group col-md-12">
@@ -43,7 +44,7 @@ if(isset($_POST['edit'])){
     </div>
     <div class="form-group col-md-12">
       <label for="inputPassword4">Price</label>
-      <input type="number" class="form-control" value="<?=$data['services_img']?>" name="price" id="inputPassword4" >
+      <input type="number" class="form-control" value="<?=$data['price']?>" name="price" id="inputPassword4" >
     </div>
   </div>
   <div class="form-row">
