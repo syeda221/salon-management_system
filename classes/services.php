@@ -21,9 +21,9 @@ class services{
     }
     
      public function ediid($id){
-        $q = $this->db->prepare("DELETE FROM `services` WHERE id=?");
+        $q = $this->db->prepare("SELCT * FROM `services` WHERE id=?");
         $q->execute($id);
-       return $q->fetch();
+       return $q->fetchAll();
         
     }
     public function ediservice($id,$name,$img,$price){
