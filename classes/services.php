@@ -21,9 +21,9 @@ class services{
     }
     
      public function ediid($id){
-        $q = $this->db->prepare("SELCT * FROM `services` WHERE id=?");
-        $q->execute($id);
-       return $q->fetchAll();
+        $q = $this->db->prepare("SELECT * FROM `services` WHERE id=?");
+        $q->execute([$id]);
+       return $q->fetch();
         
     }
     public function ediservice($id,$name,$img,$price){

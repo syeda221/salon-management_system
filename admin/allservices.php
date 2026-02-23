@@ -153,7 +153,7 @@ h2 {
                         <td><?=$d['price']?></td>
                         <td>
 							
-	<a href="allservices.php?id=<?=$d['id']?>" id="open-modal-btn"><i class="material-icons">&#xE254;</i></a>
+	<a href="editservice.php?id=<?=$d['id']?>" id="open-modal-btn"><i class="material-icons">&#xE254;</i></a>
 
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>

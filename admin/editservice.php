@@ -5,7 +5,7 @@ $table = new services($conn);
 
 $id = $_GET['id'];
 $data = $table->ediid($id);
-
+echo $id;
 if(isset($_POST['edit'])){
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -15,7 +15,8 @@ if(isset($_POST['edit'])){
         $image_tmp = $_FILES['image']['tmp_name'];
         move_uploaded_file($image_tmp ,"../asset/images/service".$image );
     }
-
+    $table->ediservice($id,$name,$price,$image);
+    header("location:allservices.php");
 }
 ?>
 <!DOCTYPE html>
