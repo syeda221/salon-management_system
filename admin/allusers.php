@@ -20,7 +20,7 @@ $table = new users($conn);
                 <div class="row">
                     <div class="col-sm-8"><h2>All <b>Users</b></h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                       <a href="adduser.php"> <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ $table = new users($conn);
                       ?>
                     <tr>
 
-                        <td><?=$d['role_id']?></td>
+                        <td><?=$d['role_name']?></td>
                         <td><?=$d['user_name']?></td>
                         <td><?=$d['user_email']?></td>
                         <td>

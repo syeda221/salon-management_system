@@ -2,7 +2,16 @@
 include '../config/connect.php';
 include '../classes/oppointment.php';
 
+$conn=(new database)->connection();
 $sys=new SalonBookingSystem($conn);
-$sys->confirmAppointment($_GET['id']);
 
+$result=$sys->assignAndConfirm(
+$_POST['id'],
+$_POST['staff_id']
+);
+
+if($result===true){
 echo "Appointment confirmed";
+}else{
+echo $result;
+}

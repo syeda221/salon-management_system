@@ -5,7 +5,7 @@ class users{
         $this->db = $db;
     }
     public function allusers(){
-        $q = $this->db->prepare("select * from users");
+        $q = $this->db->prepare("select * from users inner join role on users.role_id = role.id");
         $q->execute();
         return $q->fetchAll();
     }

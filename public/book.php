@@ -1,8 +1,10 @@
-<?php include '../config/connect.php'; $conn = (new database)->connection();
+<?php include '../config/connect.php';
+$conn=(new database)->connection();
 ?>
+
 <h2>Book Appointment</h2>
 
-<form action="oppointment.php" method="POST">
+<form action="submit.php" method="POST">
 
 Name:<br>
 <input name="name" required><br>
@@ -16,15 +18,6 @@ Phone:<br>
 Date:<br>
 <input type="date" name="date" required><br>
 
-<!-- Staff:<br>
-<select name="staff_id">
-<?php
-foreach($conn->query("SELECT * FROM staff") as $s){
-echo "<option value='$s[id]'>$s[name]</option>";
-}
-?>
-</select><br> -->
-
 Time:<br>
 <select name="slot_id">
 <?php
@@ -32,12 +25,13 @@ foreach($conn->query("SELECT * FROM time_slots") as $t){
 echo "<option value='$t[id]'>$t[slot_time]</option>";
 }
 ?>
-</select><br>
+</select>
 
-Services:<br>
+<h3>Select Services</h3>
+
 <?php
-foreach($conn->query("SELECT * FROM services") as $srv){
-echo "<input type='checkbox' name='services[]' value='$srv[id]'> $srv[service_name]<br>";
+foreach($conn->query("SELECT * FROM services") as $s){
+echo "<input type='checkbox' name='services[]' value='$s[id]'> $s[service_name]<br>";
 }
 ?>
 
