@@ -7,48 +7,79 @@ $sys=new SalonBookingSystem($conn);
 $data=$sys->getPendingAppointments();
 ?>
 
-<h2>Pending Requests</h2>
+<body>
 
-<table border="1">
+<h2>Pending Appointment Requests</h2>
+
+<table>
+
 <tr>
-<th>Client</th>
-<th>Date</th>
-<th>Assign Stylist</th>
-<th>Action</th>
+    <th>Client Name</th>
+    <th>Email</th>
+    <th>Date</th>
+    <th>Time Slot</th>
+    <th>Assign Stylist</th>
+    <th>Confirm</th>
+    <th>Reject</th>
 </tr>
+
+<?php if(!empty($data)){ ?>
 
 <?php foreach($data as $row){ ?>
 
 <tr>
 
-<td><?php echo $row['name']; ?></td>
-<td><?php echo $row['appointment_date']; ?></td>
+    <td><?php echo $row['name']; ?></td>
+    <td><?php echo $row['email']; ?></td>
+    <td><?php echo $row['appointment_date']; ?></td>
+    <td><?php echo $row['slot_id']; ?></td>
 
-<td>
-<form action="confirm.php" method="POST">
+    <!-- ASSIGN + CONFIRM -->
+    <td colspan="2">
 
-<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+        <form action="confirm.php" method="POST">
 
-<select name="staff_id" required>
-<option value="">Select stylist</option>
-<?php
-foreach($conn->query("SELECT * FROM staff") as $s){
-echo "<option value='$s[id]'>$s[name]</option>";
-}
-?>
-</select>
-</td>
+            <input type="hidden" name="id"
+                   value="<?php echo $row['id']; ?>">
 
-<td>
-<button type="submit">Confirm</button>
-</form>
+            <select name="staff_id" required>
+                <option value="">Select stylist</option>
 
-<a href="reject.php?id=<?php echo $row['id']; ?>">Reject</a>
+                <?php
+                $staff = $conn->query("SELECT * FROM staff");
+                foreach($staff as $s){
+                    echo "<option value='{$s['id']}'>{$s['name']}</option>";
+                }
+                ?>
+            </select>
 
-</td>
+            <button type="submit">Confirm</button>
+
+        </form>
+
+    </td>
+
+    <!-- REJECT -->
+    <td>
+        <a class="reject"
+           href="reject.php?id=<?php echo $row['id']; ?>"
+           onclick="return confirm('Reject this appointment?')">
+           Reject
+        </a>
+    </td>
 
 </tr>
 
 <?php } ?>
 
+<?php } else { ?>
+
+<tr>
+    <td colspan="7">No pending appointments</td>
+</tr>
+
+<?php } ?>
+
 </table>
+
+</body>

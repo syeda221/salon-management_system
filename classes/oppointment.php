@@ -81,35 +81,73 @@ class SalonBookingSystem {
     /* ======================================
        ADMIN ASSIGN + CONFIRM
     ====================================== */
-    public function assignAndConfirm($appointment,$staff){
+public function assignAndConfirm($appointment_id, $staff_id){
 
-        $data=$this->getAppointment($appointment);
+    $data = $this->getAppointment($appointment_id);
 
-        if(!$this->isStaffAvailable(
-            $staff,
-            $data['appointment_date'],
-            $data['slot_id']
-        )){
-            return "Stylist not available";
-        }
-
-        $stmt=$this->conn->prepare("
-        UPDATE appointments
-        SET staff_id=?, status='confirmed'
-        WHERE id=?
-        ");
-        $stmt->execute([$staff,$appointment]);
-
-        $this->sendEmail(
-            $data['email'],
-            "Appointment Confirmed",
-            "Your appointment has been confirmed"
-        );
-
-        return true;
+    if(!$data){
+        return "Appointment not found";
     }
 
+    // ❌ stylist not available → reject + apology email
+    if(!$this->isStaffAvailable(
+        $staff_id,
+        $data['appointment_date'],
+        $data['slot_id']
+    )){
+        $this->rejectWithApology(
+            $appointment_id,
+            $data['email'],
+            $data['name']
+        );
 
+        return "Stylist not available — apology email sent";
+    }
+
+    // ✅ stylist available → confirm
+    $stmt = $this->conn->prepare("
+        UPDATE appointments
+        SET staff_id = ?, status = 'confirmed'
+        WHERE id = ?
+    ");
+    $stmt->execute([$staff_id, $appointment_id]);
+
+    // confirmation email
+    $message = "
+        <h2>Appointment Confirmed</h2>
+        <p>Hello ".$data['name']."</p>
+        <p>Your appointment has been confirmed.</p>
+        <p><b>Date:</b> ".$data['appointment_date']."</p>
+        <p>We look forward to seeing you 💇‍♀️</p>
+    ";
+
+    $this->sendEmail(
+        $data['email'],
+        "Appointment Confirmed",
+        $message
+    );
+
+    return true;
+}
+
+private function rejectWithApology($id,$email,$name){
+
+    $stmt=$this->conn->prepare("
+        UPDATE appointments SET status='rejected'
+        WHERE id=?
+    ");
+    $stmt->execute([$id]);
+
+    $message = "
+        <h2>Appointment Update</h2>
+        <p>Hello $name</p>
+        <p>We are sorry 😔</p>
+        <p>Your requested time is not available.</p>
+        <p>Please choose another time.</p>
+    ";
+
+    $this->sendEmail($email,"Appointment Not Available",$message);
+}
     /* ======================================
        REJECT
     ====================================== */
@@ -154,7 +192,7 @@ class SalonBookingSystem {
     public function getPendingAppointments(){
 
         $stmt=$this->conn->query("
-        SELECT a.*, c.name
+        SELECT a.*, c.name,c.email
         FROM appointments a
         JOIN clients c ON a.client_id=c.id
         WHERE status='pending'
@@ -168,7 +206,32 @@ class SalonBookingSystem {
     /* ======================================
        EMAIL
     ====================================== */
-    private function sendEmail($to,$subject,$message){
-        mail($to,$subject,$message,"From: salon@gmail.com");
+ private function sendEmail($to,$subject,$message){
+
+    require '../vendor/autoload.php';
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+    try{
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'qunootzehra21@gmail.com';
+        $mail->Password   = 'xxsjkceslyolevok';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+
+        $mail->setFrom('qunootzehra@gmail.com','Salon Booking');
+        $mail->addAddress($to);
+
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+        $mail->send();
+
+    }catch(Exception $e){
+        echo "Email error: ".$mail->ErrorInfo;
     }
+}
 }

@@ -7,4 +7,5 @@ $sys=new SalonBookingSystem($conn);
 
 $sys->rejectAppointment($_GET['id']);
 
-echo "Appointment rejected";
+echo "Appointment rejected and email sent";
+?>
