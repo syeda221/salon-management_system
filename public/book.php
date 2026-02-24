@@ -1,34 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-       <link rel="stylesheet" href="../asset/frontend/css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="../asset/frontend/css/style.css">
-</head>
-<body>
-    <?php
-date_default_timezone_set("Asia/Karachi");
+<?php include '../config/connect.php'; $conn = (new database)->connection();
 ?>
+<h2>Book Appointment</h2>
 
-<h2>Select Date</h2>
-<div class="container">
-<div class="row">
+<form action="oppointment.php" method="POST">
+
+Name:<br>
+<input name="name" required><br>
+
+Email:<br>
+<input name="email" required><br>
+
+Phone:<br>
+<input name="phone" required><br>
+
+Date:<br>
+<input type="date" name="date" required><br>
+
+<!-- Staff:<br>
+<select name="staff_id">
 <?php
-$today = date('Y-m-d');
+foreach($conn->query("SELECT * FROM staff") as $s){
+echo "<option value='$s[id]'>$s[name]</option>";
+}
+?>
+</select><br> -->
 
-for($i = 0; $i < 7; $i++){
+Time:<br>
+<select name="slot_id">
+<?php
+foreach($conn->query("SELECT * FROM time_slots") as $t){
+echo "<option value='$t[id]'>$t[slot_time]</option>";
+}
+?>
+</select><br>
 
-$date = date('Y-m-d', strtotime("+$i days"));
-$label = date('D d M', strtotime($date));
-
-echo "<a href='available_slots.php?date=$date'><botton class='col-1'>$label<button></a><br>";
+Services:<br>
+<?php
+foreach($conn->query("SELECT * FROM services") as $srv){
+echo "<input type='checkbox' name='services[]' value='$srv[id]'> $srv[service_name]<br>";
 }
 ?>
 
-</div>
-</div>
-</body>
-</html>
+<br>
+<button type="submit">Book</button>
+
+</form>

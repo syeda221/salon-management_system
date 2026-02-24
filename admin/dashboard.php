@@ -69,7 +69,7 @@ if($_SESSION['role'] != 1){
                         </ul> -->
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
+                        <a href="appointments.php" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-cast"></i></span>
                             <span class="nxl-mtext">Appointments</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
