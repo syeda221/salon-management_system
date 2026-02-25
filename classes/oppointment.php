@@ -168,23 +168,27 @@ private function rejectWithApology($id,$email,$name){
         );
     }
 
+public function getConfirmedAppointments(){
 
-    /* ======================================
-       GET SINGLE
-    ====================================== */
-    public function getAppointment($id){
-
-        $stmt=$this->conn->prepare("
-        SELECT a.*, c.name, c.email
+    $stmt = $this->conn->query("
+        SELECT 
+            a.*,
+            c.name AS client_name,
+            c.email,
+            s.name AS staff_name,
+            sv.service_name,
+            ts.slot_time
         FROM appointments a
-        JOIN clients c ON a.client_id=c.id
-        WHERE a.id=?
-        ");
-        $stmt->execute([$id]);
+        JOIN clients c      ON a.client_id = c.id
+        JOIN staff s        ON a.staff_id = s.id
+        JOIN services sv    ON a.service_id = sv.id
+        JOIN time_slots ts  ON a.slot_id = ts.id
+        WHERE a.status = 'confirmed'
+        ORDER BY a.appointment_date DESC
+    ");
 
-        return $stmt->fetch();
-    }
-
+    return $stmt->fetchAll();
+}
 
     /* ======================================
        GET PENDING
