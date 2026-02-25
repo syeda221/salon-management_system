@@ -28,7 +28,7 @@ $data=$sys->getPendingAppointments();
 <?php foreach($data as $row){ ?>
 
 <tr>
-
+    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
     <td><?php echo $row['name']; ?></td>
     <td><?php echo $row['email']; ?></td>
     <td><?php echo $row['appointment_date']; ?></td>

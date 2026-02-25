@@ -7,7 +7,18 @@ class SalonBookingSystem {
     public function __construct($db){
         $this->conn = $db;
     }
+    public function getAppointment($id){
 
+    $stmt = $this->conn->prepare("
+        SELECT a.*, c.name, c.email
+        FROM appointments a
+        JOIN clients c ON a.client_id = c.id
+        WHERE a.id = ?
+    ");
+
+    $stmt->execute([$id]);
+    return $stmt->fetch();
+}
     /* ======================================
        CREATE CLIENT IF NOT EXISTS
     ====================================== */
@@ -30,20 +41,21 @@ class SalonBookingSystem {
     /* ======================================
        CHECK STAFF AVAILABILITY
     ====================================== */
-    public function isStaffAvailable($staff,$date,$slot){
+    public function isStaffAvailable($staff_id, $date, $slot_id){
 
-        $stmt=$this->conn->prepare("
-        SELECT id FROM appointments
-        WHERE staff_id=?
-        AND appointment_date=?
-        AND slot_id=?
-        AND status='confirmed'
-        ");
+    $stmt = $this->conn->prepare("
+        SELECT COUNT(*) 
+        FROM appointments
+        WHERE staff_id = ?
+        AND appointment_date = ?
+        AND slot_id = ?
+        AND status = 'confirmed'
+    ");
 
-        $stmt->execute([$staff,$date,$slot]);
+    $stmt->execute([$staff_id, $date, $slot_id]);
 
-        return $stmt->rowCount()==0;
-    }
+    return $stmt->fetchColumn() == 0;
+}
 
 
     /* ======================================
@@ -172,24 +184,35 @@ public function getConfirmedAppointments(){
 
     $stmt = $this->conn->query("
         SELECT 
-            a.*,
+            a.id,
+            a.appointment_date,
+            ts.slot_time,
+
             c.name AS client_name,
             c.email,
+
             s.name AS staff_name,
-            sv.service_name,
-            ts.slot_time
+
+            GROUP_CONCAT(sv.service_name SEPARATOR ', ') AS services
+
         FROM appointments a
-        JOIN clients c      ON a.client_id = c.id
-        JOIN staff s        ON a.staff_id = s.id
-        JOIN services sv    ON a.service_id = sv.id
-        JOIN time_slots ts  ON a.slot_id = ts.id
+
+        JOIN clients c ON a.client_id = c.id
+        JOIN staff s   ON a.staff_id = s.id
+        JOIN time_slots ts ON a.slot_id = ts.id
+
+        -- IMPORTANT FIX (many services per appointment)
+        JOIN appointment_services aps ON a.id = aps.appointment_id
+        JOIN services sv ON aps.service_id = sv.id
+
         WHERE a.status = 'confirmed'
+
+        GROUP BY a.id
         ORDER BY a.appointment_date DESC
     ");
 
     return $stmt->fetchAll();
 }
-
     /* ======================================
        GET PENDING
     ====================================== */

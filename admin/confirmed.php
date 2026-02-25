@@ -27,7 +27,7 @@ $data = $sys->getConfirmedAppointments();
 
 <td><?php echo $row['client_name']; ?></td>
 <td><?php echo $row['email']; ?></td>
-<td><?php echo $row['service_name']; ?></td>
+<td><?php echo $row['services']; ?></td>
 <td><?php echo $row['appointment_date']; ?></td>
 
 <td>

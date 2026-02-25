@@ -8,6 +8,7 @@ $sys=new SalonBookingSystem($conn);
 $result=$sys->assignAndConfirm(
 $_POST['id'],
 $_POST['staff_id']
+
 );
 
 if($result===true){
