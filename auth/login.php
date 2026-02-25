@@ -2,30 +2,44 @@
 session_start();
 include '../classes/auth.php';
 include '../config/connect.php';
+
 $database = (new database)->connection();
 $table = new auth($database);
+
 if(isset($_POST['login'])){
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $user = $table->login($email,$password);
-  if($user){
-    $_SESSION['username'] = $user['user_name'];
-    $_SESSION['email'] = $user['user_email'];
-    $_SESSION['role'] = $user['role_id'];
-    if($_SESSION['role']== 1){
-      header("location:../admin/dashboard.php");
-    }elseif($_SESSION['role']== 2){
-      header("location:../receptionist/index.php");
-    }elseif($_SESSION['role']== 3){
-      header("location:../staff/index.php");
 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $user = $table->login($email,$password);
+
+    if($user){
+
+        // IMPORTANT — store user id
+        $_SESSION['user_id'] = $user['id'];
+
+        $_SESSION['username'] = $user['user_name'];
+        $_SESSION['email'] = $user['user_email'];
+        $_SESSION['role'] = $user['role_id'];
+
+        // redirect based on role
+        if($user['role_id'] == 1){
+            header("Location: ../admin/dashboard.php");
+            exit;
+        }
+        elseif($user['role_id'] == 2){
+            header("Location: ../receptionist/index.php");
+            exit;
+        }
+        elseif($user['role_id'] == 3){
+            header("Location: ../staff/index.php");
+            exit;
+        }
+
+    }else{
+        echo "<script>alert('Email or password is incorrect')</script>";
     }
-  }
-  else{
-    echo "<script>alert('email or password is not correct')</script>";
-  }
 }
-
 ?>
 
 <!DOCTYPE html>

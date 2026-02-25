@@ -12,7 +12,13 @@ $_POST['staff_id']
 );
 
 if($result===true){
-echo "Appointment confirmed";
+  echo "<script>
+            alert('Appointment confirmed successfully!');
+            window.location.href='dashboard.php';
+          </script>";
 }else{
-echo $result;
+echo "<script>
+            alert('$result');
+            window.location.href='pending.php';
+          </script>";
 }
