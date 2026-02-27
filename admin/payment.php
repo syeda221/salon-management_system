@@ -17,7 +17,7 @@ $total = $payment->getTotalAmount($appointment_id);
     <select name="method">
         <option value="cash">Cash</option>
         <option value="card">Card</option>
-        <option value="online">Online</option>
+        <!-- <option value="online">Online</option> -->
     </select>
 
     <button type="submit" name="pay">Pay Now</button>

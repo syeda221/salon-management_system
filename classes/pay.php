@@ -13,7 +13,7 @@ class Payment {
 
         $q = $this->db->prepare("
             SELECT SUM(s.price) as total
-            FROM appointment_service aps
+            FROM appointment_services aps
             JOIN services s ON s.id = aps.service_id
             WHERE aps.appointment_id = ?
         ");

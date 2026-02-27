@@ -1,22 +1,45 @@
 <?php
 include '../config/connect.php';
-$conn = (new database)->connection();
 
+$db = (new database)->connection();
 $id = $_GET['id'];
 
-$query = "
+$q = $db->prepare("
 SELECT 
-    a.id,
-    u.user_name,
-    srv.name AS service,
-    srv.price,
-    a.payment_method,
-    a.paid_at
-FROM appointments a
-JOIN users u ON a.user_id = u.id
-JOIN services srv ON a.service_id = srv.id
-WHERE a.id = $id
-";
+a.id,
+a.appointment_date,
+a.paid_amount,
+a.payment_method,
+s.service_name,
+s.price
 
-$invoice = $conn->query($query)->fetch(PDO::FETCH_ASSOC);
+FROM appointments a
+JOIN appointment_services aps ON aps.appointment_id=a.id
+JOIN services s ON s.id=aps.service_id
+WHERE a.id=?
+");
+
+$q->execute([$id]);
+$data = $q->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<h2>Invoice</h2>
+<p>Appointment ID: <?= $id ?></p>
+
+<table border="1">
+<tr>
+<th>Service</th>
+<th>Price</th>
+</tr>
+
+<?php foreach($data as $row): ?>
+<tr>
+<td><?= $row['service_name'] ?></td>
+<td><?= $row['price'] ?></td>
+</tr>
+<?php endforeach; ?>
+
+</table>
+
+<h3>Total Paid: Rs <?= $data[0]['paid_amount'] ?></h3>
+<p>Method: <?= $data[0]['payment_method'] ?></p>
