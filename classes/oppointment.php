@@ -185,7 +185,10 @@ public function getConfirmedAppointments(){
     $stmt = $this->conn->query("
         SELECT 
             a.id,
-            a.appointment_date,
+            a.appointment_date,payment_status ,
+            payment_method ,
+            paid_amount ,
+            paid_at ,
             ts.slot_time,
 
             c.name AS client_name,
