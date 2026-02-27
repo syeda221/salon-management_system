@@ -33,7 +33,7 @@
    <body class="main-layout">
       <!-- loader  -->
       <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+         <div class="loader"><img src="../asset/frontend/images/loading.gif" alt="#" /></div>
       </div>
       <!-- end loader -->
       <!-- header -->
@@ -72,7 +72,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                              <a href="index.html"><img src="../asset/frontend/images/elogo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -189,27 +189,25 @@
                <div class="col-md-4">
                   <div id="hover_chang" class="service_box">
                      <i><img src="../asset/frontend/images/thr.png" alt="#"/></i>
-                     <h3>Cosmetic</h3>
+                     <h3>Meni-Pedi</h3>
                      <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
                   </div>
                </div>
                <div class="col-md-4">
                   <div id="hover_chang" class="service_box">
                      <i><img src="../asset/frontend/images/thr1.png" alt="#"/></i>
-                     <h3>nails</h3>
+                     <h3>Facial</h3>
                      <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
                   </div>
                </div>
                <div class="col-md-4">
                   <div id="hover_chang" class="service_box">
                      <i><img src="../asset/frontend/images/thr2.png" alt="#"/></i>
-                     <h3>hairdressing</h3>
+                     <h3>Hair Styling</h3>
                      <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
                   </div>
                </div>
-               <div class="col-md-12">
-                  <a class="read_more" href="#">Read More</a>
-               </div>
+              
             </div>
          </div>
       </div>

@@ -19,6 +19,7 @@ $data = $sys->getConfirmedAppointments();
 <th>Date</th>
 <th>Time</th>
 <th>Stylist</th>
+
 </tr>
 
 <?php foreach($data as $row){ ?>
@@ -29,6 +30,7 @@ $data = $sys->getConfirmedAppointments();
 <td><?php echo $row['email']; ?></td>
 <td><?php echo $row['services']; ?></td>
 <td><?php echo $row['appointment_date']; ?></td>
+<td>Rs <?php echo $row['price']; ?></td>
 
 <td>
 <?php echo date("h:i A", strtotime($row['slot_time'])); ?>

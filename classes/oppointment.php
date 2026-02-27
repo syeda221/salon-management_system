@@ -190,7 +190,7 @@ public function getConfirmedAppointments(){
 
             c.name AS client_name,
             c.email,
-
+    
             s.name AS staff_name,
 
             GROUP_CONCAT(sv.service_name SEPARATOR ', ') AS services
@@ -204,7 +204,6 @@ public function getConfirmedAppointments(){
         -- IMPORTANT FIX (many services per appointment)
         JOIN appointment_services aps ON a.id = aps.appointment_id
         JOIN services sv ON aps.service_id = sv.id
-
         WHERE a.status = 'confirmed'
 
         GROUP BY a.id

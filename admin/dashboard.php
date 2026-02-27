@@ -5,6 +5,7 @@ if($_SESSION['role'] != 1){
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -69,20 +70,18 @@ if($_SESSION['role'] != 1){
                         </ul> -->
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="appointments.php" class="nxl-link">
+                        <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-cast"></i></span>
                             <span class="nxl-mtext">Appointments</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <!-- <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="reports-sales.html">Sales Report</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="reports-leads.html">Leads Report</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="reports-project.html">Project Report</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Timesheets Report</a></li>
-                        </ul> -->
+                        <ul class="nxl-submenu">
+                            <li class="nxl-item"><a class="nxl-link" href="confirmed.php">Confirmed Appointments</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="pending.php">Pending Appointments</a></li>
+                        </ul>
                         
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
+                        <a href="clients.php" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-send"></i></span>
                             <span class="nxl-mtext">CLients</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
@@ -98,11 +97,11 @@ if($_SESSION['role'] != 1){
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-at-sign"></i></span>
-                            <span class="nxl-mtext">Staff</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Users</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="proposal-view.html"> View All</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="proposal-edit.html">Add Staff</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="allusers.php"> View All</a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="addusers.php">Add Users</a></li>
                             <!-- <li class="nxl-item"><a class="nxl-link" href="proposal-create.html">Proposal Create</a></li> -->
                        
                         </ul> 

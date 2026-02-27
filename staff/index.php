@@ -7,7 +7,7 @@ $conn = (new database)->connection();
 $user_id = $_SESSION['user_id'];
 
 /* GET staff.id using user_id */
-$stmt = $conn->prepare("SELECT id FROM staff WHERE user_id = ?");
+$stmt = $conn->prepare("SELECT * FROM staff WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $staff = $stmt->fetch();
 
@@ -17,21 +17,6 @@ if(!$staff){
 
 $staff_id = $staff['id'];
 $stmt = $conn->prepare("
-    SELECT 
-        a.id,
-        a.appointment_date,
-        ts.slot_time,
-        c.name AS client_name
-    FROM appointments a
-    JOIN clients c ON a.client_id = c.id
-    JOIN time_slots ts ON a.slot_id = ts.id
-    WHERE a.staff_id = ?
-    AND a.status = 'confirmed'
-    ORDER BY a.appointment_date ASC
-");
-
-$stmt->execute([$staff_id]);
-$appointments = $stmt->fetchAll();$stmt = $conn->prepare("
     SELECT 
         a.id,
         a.appointment_date,
@@ -85,7 +70,7 @@ $appointments = $stmt->fetchAll();
 
 <body>
 
-<h2>My Appointments</h2>
+<h2><?=$staff['name']?> Appointments</h2>
 
 <table>
 
