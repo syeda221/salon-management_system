@@ -50,7 +50,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">
-                                 <a class="nav-link" href="index.html"> All  </a>
+                                 <a class="nav-link" href="index.html"> Home  </a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="#about">About</a>
@@ -109,9 +109,8 @@
                            <div class="col-md-6">
                               <div class="text-bg">
                                  <span>Welcome to</span>
-                                 <h1>Elegance</h1>
-                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
+                                 <h1>Elegant Salon</h1>
+                                  <a href="#">Book Now</a>
                               </div>
                            </div>
                            <div class="col-md-6">
@@ -130,10 +129,9 @@
                            <div class="col-md-6">
                               <div class="text-bg">
                                  <span>Welcome to</span>
-                                 <h1>labspa</h1>
-                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
-                              </div>
+                                 <h1>Elegant Salon</h1>
+                                  <a href="#">Book Now</a>
+                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="text_img">
@@ -151,10 +149,9 @@
                            <div class="col-md-6">
                               <div class="text-bg">
                                  <span>Welcome to</span>
-                                 <h1>labspa</h1>
-                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                                 <a href="#">Read More </a> <a href="#">Book Now</a>
-                              </div>
+                                 <h1>Elegant Salon</h1>
+                                 <a href="#">Book Now</a>
+                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="text_img">
@@ -180,36 +177,37 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2> <img src="images/head.png" alt="#"/> Our Services</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-4">
-                  <div id="hover_chang" class="service_box">
-                     <i><img src="../asset/frontend/images/thr.png" alt="#"/></i>
-                     <h3>Meni-Pedi</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div id="hover_chang" class="service_box">
-                     <i><img src="../asset/frontend/images/thr1.png" alt="#"/></i>
-                     <h3>Facial</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div id="hover_chang" class="service_box">
-                     <i><img src="../asset/frontend/images/thr2.png" alt="#"/></i>
-                     <h3>Hair Styling</h3>
-                     <p>some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                  </div>
-               </div>
-              
-            </div>
-         </div>
+             <div class="titlepage">
+   <h2> <img src="../asset/frontend/images/head.png" alt="#"/> Our Services</h2>
+</div>
+</div>
+</div>
+<div class="row">
+   <div class="col-md-4">
+      <div id="hover_chang" class="service_box">
+         <i><img src="../asset/frontend/images/thr.png" alt="#"/></i>
+         <h3>Mani-Pedi</h3>
+         <p>Pamper your hands and feet with our relaxing manicure and pedicure treatments for clean, healthy, and beautiful nails.</p>
+      </div>
+   </div>
+
+   <div class="col-md-4">
+      <div id="hover_chang" class="service_box">
+         <i><img src="../asset/frontend/images/thr1.png" alt="#"/></i>
+         <h3>Facial</h3>
+         <p>Refresh and rejuvenate your skin with our customized facial treatments designed to cleanse, hydrate, and glow.</p>
+      </div>
+   </div>
+
+   <div class="col-md-4">
+      <div id="hover_chang" class="service_box">
+         <i><img src="../asset/frontend/images/thr2.png" alt="#"/></i>
+         <h3>Hair Styling</h3>
+         <p>Get the perfect look with professional hair styling, from trendy cuts to elegant styles for every occasion.</p>
+      </div>
+   </div>
+</div>
+</div>
       </div>
       <!-- service -->
       <!-- about -->
@@ -218,9 +216,8 @@
             <div class="row">
                <div class="col-md-9">
                   <div class="titlepage">
-                     <h2> <img src="../asset/frontend/images/head.h.png" alt="#"/> About Our Labspa</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are </p>
-                     <a class="read_more">Read More</a>
+                     <h2> <img src="../asset/frontend/images/head.h.png" alt="#"/> About Our Elegent  </h2>
+                    <p>Where beauty meets perfection. At Salon Elegant, we offer premium beauty and grooming services in a relaxing and luxurious environment. Our expert professionals are dedicated to enhancing your natural beauty and giving you a refreshing, confident look every time you visit.</p>
                   </div>
                </div>
             </div>
@@ -233,7 +230,7 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2> <img src="images/head.png" alt="#"/> Our Customer Feedback</h2>
+                     <h2> <img src="../asset/frontend/images/head.png" alt="#"/> Our Customer Feedback</h2>
                   </div>
                </div>
             </div>
@@ -248,11 +245,11 @@
                      <div class="container">
                         <div class="carousel-caption ">
                            <div class="test_box">
-                              <i><img src="images/tes.png" alt="#"/></i>
+                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
                               <h4>Rohali jonson</h4>
                               <span>customer</span>
                               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="images/icon.png" alt="#"/>
+                              <img src="../asset/frontend/images/icon.png" alt="#"/>
                            </div>
                         </div>
                      </div>
@@ -261,11 +258,11 @@
                      <div class="container">
                         <div class="carousel-caption">
                            <div class="test_box">
-                              <i><img src="images/tes.png" alt="#"/></i>
+                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
                               <h4>Rohali jonson</h4>
                               <span>customer</span>
                               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="images/icon.png" alt="#"/>
+                              <img src="../asset/frontend/images/icon.png" alt="#"/>
                            </div>
                         </div>
                      </div>
@@ -274,11 +271,11 @@
                      <div class="container">
                         <div class="carousel-caption">
                            <div class="test_box">
-                              <i><img src="images/tes.png" alt="#"/></i>
+                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
                               <h4>Rohali jonson</h4>
                               <span>customer</span>
                               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="images/icon.png" alt="#"/>
+                              <img src="../asset/frontend/images/icon.png" alt="#"/>
                            </div>
                         </div>
                      </div>
@@ -301,7 +298,7 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2> <img src="images/head.h.png" alt="#"/> Request <span class="white"> A call Back</span></h2>
+                     <h2> <img src="../asset/frontend/images/head.h.png" alt="#"/> Request <span class="white"> A call Back</span></h2>
                   </div>
                </div>
             </div>
@@ -354,7 +351,7 @@
                      <div class="row">
                         <div class="col-md-7 padd_bottom">
                            <div class="heading3">
-                              <a href="#"><img src="images/logo1.png" alt="#"/></a>
+                              <a href="#"><img src="../asset/frontend/images/elogo.png" alt="#"/></a>
                               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
                            </div>
                         </div>
@@ -409,7 +406,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. <a href="https://html.design/"> Free  html Templates</a></p>
+                        <p>&copy; All Rights Reserved.Elegent Salon </a></p>
                      </div>
                   </div>
                </div>

@@ -39,14 +39,14 @@ $appointments = $stmt->fetchAll();
     <title>My Appointments</title>
 
     <style>
-        body{
+        /* body{
             font-family: Arial;
             padding: 30px;
             background:#f4f6f8;
-        }
+        } */
 
         table{
-            width:100%;
+            width:80%;
             border-collapse: collapse;
             background:white;
         }
@@ -58,21 +58,59 @@ $appointments = $stmt->fetchAll();
         }
 
         th{
-            background:#007bff;
+            background-color:#AA1532;
             color:white;
         }
 
         h2{
             margin-bottom:20px;
         }
+        .navbar{
+            background-color:#AA1532;
+        }
     </style>
+      <link rel="stylesheet" href="../asset/frontend/css/bootstrap.min.css">
+
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark  shadow-sm">
+  <div class="container-fluid">
 
-<h2><?=$staff['name']?> Appointments</h2>
+    <!-- Brand -->
+    <a class="navbar-brand fw-semibold" href="#">Staff Panel</a>
 
-<table>
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#staffNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Right side buttons -->
+    <div class="collapse navbar-collapse justify-content-end" id="staffNavbar">
+      
+      <div class="d-flex gap-2">
+
+        <a href="profile.php" class="btn btn-outline-light  btn-sm">
+          View Profile
+        </a>
+
+        <a href="edit_profile.php" class="btn btn-light btn-sm">
+          Edit Profile
+        </a>
+
+        <a href="logout.php" class="btn btn-danger btn-sm">
+          Logout
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+<div > 
+<h2 class="text-center mt-5 p-3"><?=$staff['name']?> Appointments</h2>
+
+<table class="m-auto mt-5">
 
 <tr>
     <th>ID</th>
@@ -103,6 +141,6 @@ $appointments = $stmt->fetchAll();
 <?php } ?>
 
 </table>
-
+</div>
 </body>
 </html>
