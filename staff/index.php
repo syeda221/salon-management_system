@@ -39,35 +39,46 @@ $appointments = $stmt->fetchAll();
     <title>My Appointments</title>
 
     <style>
-        /* body{
-            font-family: Arial;
-            padding: 30px;
-            background:#f4f6f8;
-        } */
+body{
+    font-family: Arial, sans-serif;
+    background:#ffffff;
+    margin:0;
+}
 
-        table{
-            width:80%;
-            border-collapse: collapse;
-            background:white;
-        }
+/* Navbar */
+.navbar{
+    background:#AA1532;
+}
 
-        th,td{
-            padding:12px;
-            border:1px solid #ddd;
-            text-align:center;
-        }
+/* Page heading */
+.page-title{
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:20px;
+}
 
-        th{
-            background-color:#AA1532;
-            color:white;
-        }
+/* Table */
+table{
+    width:80%;
+    margin:30px auto;
+    border-collapse:collapse;
+    background:white;
+}
 
-        h2{
-            margin-bottom:20px;
-        }
-        .navbar{
-            background-color:#AA1532;
-        }
+th, td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#f5f5f5;
+    font-weight:bold;
+}
+
+tr:nth-child(even){
+    background:#fafafa;
+}
     </style>
       <link rel="stylesheet" href="../asset/frontend/css/bootstrap.min.css">
 
@@ -88,17 +99,15 @@ $appointments = $stmt->fetchAll();
     <!-- Right side buttons -->
     <div class="collapse navbar-collapse justify-content-end" id="staffNavbar">
       
-      <div class="d-flex gap-2">
+      <div class="d-flex gap-4">
 
         <a href="profile.php" class="btn btn-outline-light  btn-sm">
           View Profile
         </a>
 
-        <a href="edit_profile.php" class="btn btn-light btn-sm">
-          Edit Profile
-        </a>
 
-        <a href="logout.php" class="btn btn-danger btn-sm">
+
+        <a href="../auth/logout.php" class="btn btn-light ms-2 btn-sm">
           Logout
         </a>
 
@@ -107,11 +116,13 @@ $appointments = $stmt->fetchAll();
     </div>
   </div>
 </nav>
-<div > 
-<h2 class="text-center mt-5 p-3"><?=$staff['name']?> Appointments</h2>
+<div class="appointment-card">
 
-<table class="m-auto mt-5">
+<h2 class="page-title">
+    <?=$staff['name']?> Appointments
+</h2>
 
+<table>
 <tr>
     <th>ID</th>
     <th>Client</th>
@@ -135,7 +146,7 @@ $appointments = $stmt->fetchAll();
 <?php }else{ ?>
 
 <tr>
-    <td colspan="5">No appointments assigned</td>
+    <td colspan="5" class="no-data">No appointments assigned</td>
 </tr>
 
 <?php } ?>
