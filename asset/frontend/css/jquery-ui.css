@@ -1031,9 +1031,9 @@ a.ui-button:active,
 .ui-widget-header .ui-state-error-text {
 	color: #5f3f3f;
 }
-.ui-priority-primary,
-.ui-widget-content .ui-priority-primary,
-.ui-widget-header .ui-priority-primary {
+.ui-priority-danger,
+.ui-widget-content .ui-priority-danger,
+.ui-widget-header .ui-priority-danger {
 	font-weight: bold;
 }
 .ui-priority-secondary,

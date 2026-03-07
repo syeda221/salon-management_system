@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
 
         // redirect based on role
         if($user['role_id'] == 1){
-            header("Location: ../admin/dashboard.php");
+            header("Location: ../admin/index.php");
             exit;
         }
         elseif($user['role_id'] == 2){
@@ -47,7 +47,7 @@ if(isset($_POST['login'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login USer</title>
+    <title>Login User</title>
     <link rel="stylesheet" href="../asset/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -56,13 +56,13 @@ if(isset($_POST['login'])){
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+        <img src="../asset/images/logo.png"
           class="img-fluid" alt="Sample image">
       </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+      <div class="col-md-4   col-lg-6 col-xl-4 offset-xl-1">
         <form method="post" >
           
-            <h1 class="lead fw-bold mb-0 mb-4 text-center">login in </h1>
+            <h1 class="lead fw-bold mb-0 mb-4 left-center">login in </h1>
 
           <!-- Email input -->
           <div data-mdb-input-init class="form-outline mb-4">
@@ -78,32 +78,24 @@ if(isset($_POST['login'])){
             <label class="form-label" for="form3Example4">Password</label>
           </div>
 
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                
-              </label>
-            </div>
-          </div>
+        
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;" name="login">Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php"
-                class="link-danger">Register</a></p>
+            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;background-color:#AA1529 ;color:white;" name="login">Login</button>
+          
           </div>
-
+</div>
         </form>
-      </div>
-    </div>
+   
   </div>
-  <div
-    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+</section>
+
+  <div style="background-color:#AA1529 "
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 ">
     <!-- Copyright -->
     <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
+       © Elegent Salon 202. All rights reserved.
     </div>
     <!-- Copyright -->
 
@@ -124,7 +116,6 @@ if(isset($_POST['login'])){
     </div>
     <!-- Right -->
   </div>
-</section>
 </body>
 </html>
 

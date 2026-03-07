@@ -1,3 +1,19 @@
+<?php
+require '../config/connect.php';
+$conn = (new Database)->connection();
+
+$data = $conn->query("
+SELECT f.*, c.name
+FROM feedback f
+JOIN clients c ON f.client_id = c.id
+ORDER BY f.id DESC
+")->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -12,6 +28,7 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <!-- bootstrap css -->
       <link rel="stylesheet" href="../asset/frontend/css/bootstrap.min.css">
       <!-- style css -->
@@ -25,9 +42,6 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -68,7 +82,7 @@
                         </div>
                      </nav>
                   </div>
-                  <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col logo_section">
+                  <div class="col-xl-2 m-auto col-lg-2 col-md-3 col-sm-3 col logo_section">
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
@@ -78,13 +92,9 @@
                      </div>
                   </div>
                   <div class=" book col-xl-5 col-lg-5 col-md-5 col-sm-5">
-                     <!-- <ul class="email">
-                        <li><a href="#">Call: (+71) 1234567890</a></li>
-                        <li><a href="#">Get Your Appointment</a></li>
-                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                     </ul> -->
-                     <a href="book.php" class="auto-ml">
-                        <button class="btn">Get Your Appointment</button>
+                   
+                     <a href="../auth/login.php" class="auto-ml">
+                        <button class="btn">Login</button>
                      </a>
                   </div>
                </div>
@@ -110,7 +120,7 @@
                               <div class="text-bg">
                                  <span>Welcome to</span>
                                  <h1>Elegant Salon</h1>
-                                  <a href="#">Book Now</a>
+                                  <a href="../common/book.php">Book Now</a>
                               </div>
                            </div>
                            <div class="col-md-6">
@@ -130,7 +140,7 @@
                               <div class="text-bg">
                                  <span>Welcome to</span>
                                  <h1>Elegant Salon</h1>
-                                  <a href="#">Book Now</a>
+                                  <a href="../common/book.php">Book Now</a>
                                </div>
                            </div>
                            <div class="col-md-6">
@@ -150,7 +160,7 @@
                               <div class="text-bg">
                                  <span>Welcome to</span>
                                  <h1>Elegant Salon</h1>
-                                 <a href="#">Book Now</a>
+                                 <a href="../common/book.php">Book Now</a>
                                </div>
                            </div>
                            <div class="col-md-6">
@@ -226,70 +236,77 @@
       <!-- end about -->
       <!-- customer -->
       <div id="customer" class="customer">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2> <img src="../asset/frontend/images/head.png" alt="#"/> Our Customer Feedback</h2>
-                  </div>
-               </div>
-            </div>
-            <div id="myCarousel" class="carousel slide customer_Carousel " data-ride="carousel">
-               <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#myCarousel" data-slide-to="1"></li>
-                  <li data-target="#myCarousel" data-slide-to="2"></li>
-               </ol>
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="container">
-                        <div class="carousel-caption ">
-                           <div class="test_box">
-                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
-                              <h4>Rohali jonson</h4>
-                              <span>customer</span>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="../asset/frontend/images/icon.png" alt="#"/>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <div class="carousel-caption">
-                           <div class="test_box">
-                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
-                              <h4>Rohali jonson</h4>
-                              <span>customer</span>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="../asset/frontend/images/icon.png" alt="#"/>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <div class="carousel-caption">
-                           <div class="test_box">
-                              <!-- <i><img src="../asset/frontend/images/tes.png" alt="#"/></i> -->
-                              <h4>Rohali jonson</h4>
-                              <span>customer</span>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
-                              <img src="../asset/frontend/images/icon.png" alt="#"/>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-               <i class="fa fa-chevron-left" aria-hidden="true"></i>
-               </a>
-               <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-               <i class="fa fa-chevron-right" aria-hidden="true"></i>
-               </a>
+   <div class="container">
+
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>
+                  <img src="../asset/frontend/images/head.png" alt="#"/> 
+                  Our Customer Feedback
+               </h2>
             </div>
          </div>
       </div>
+
+      <div id="myCarousel" class="carousel slide customer_Carousel" data-ride="carousel">
+
+         <div class="carousel-inner">
+
+         <?php if(!empty($data)): ?>
+
+            <?php 
+            $first = true; 
+            foreach($data as $f): 
+            ?>
+
+               <div class="carousel-item <?= $first ? 'active' : '' ?>">
+                  <div class="container">
+                  <div class="carousel-caption">
+                     <div class="test_box">
+                        <h4><?= htmlspecialchars($f['name']) ?></h4>
+                        <span><?= htmlspecialchars($f['rating']) ?>/5</span>
+                        <p><?= htmlspecialchars($f['message']) ?></p>
+                        <img src="../asset/frontend/images/icon.png" alt="#"/>
+                     </div>
+                     </div>
+                  </div>
+               </div>
+
+            <?php 
+            $first = false; 
+            endforeach; 
+            ?>
+
+         <?php else: ?>
+
+            <div class="carousel-item active">
+               <div class="carousel-caption">
+                  <div class="test_box">
+                     <h4>No Feedback Yet</h4>
+                     <p>Be the first to give feedback 😊</p>
+                  </div>
+               </div>
+            </div>
+
+         <?php endif; ?>
+
+         </div>
+
+         <!-- Controls -->
+         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+         </a>
+
+         <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+         </a>
+
+      </div>
+
+   </div>
+</div>
+                 
       <!-- end customer -->
       </div>
       <!--  contact -->
@@ -298,35 +315,51 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2> <img src="../asset/frontend/images/head.h.png" alt="#"/> Request <span class="white"> A call Back</span></h2>
+                     <h2> <img src="../asset/frontend/images/head.h.png" alt="#"/> Contact <span class="white">Us</span></h2>
                   </div>
                </div>
             </div>
             <div class="row">
                <div class="col-md-6">
-                  <form id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Name" type="type" name="Name"> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
-                        </div>
-                        <div class="col-sm-col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                           <button class="send_btn">Send</button>
-                        </div>
-                     </div>
-                  </form>
+          
+    <div style="max-width:800px;  color:white; margin:auto; text-align:;">
+        
+        <p style="color:fff; font-size:1.7rem; margin-bottom:70px; margin-top:50px;">
+            We'd love to hear from you. Feel free to reach out through any of the following ways.
+        </p>
+
+        <!-- Contact Info -->
+        <div style="margin-bottom:40px; font-size:large; ">
+            <p style="font-size:1.1rem;"><strong>Email:</strong> salonelegent.com</p> <br>
+            <p style="font-size:1.1rem;"><strong>Phone:</strong> +92 300 1234567</p>
+            <p style="font-size:1.1rem;"><strong>Address:</strong> elegent Salon Street, Hyderabad City, Pakistan</p>
+        </div>
+
+        <!-- Social Media -->
+        <div style="color:white;">
+            <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px;">
+                <i style="color:white;font-size:1.5rem;" class="fab fa-facebook"></i>
+            </a>
+
+            <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px;">
+                <i style="color:white;font-size:1.5rem;" class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px;">
+                <i style="color:white;font-size:1.5rem;" class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px;">
+                <i style="color:white;font-size:1.5rem;" class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+    </div>
+
                </div>
                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="432" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.9173234831765!2d68.35111497385658!3d25.374087224516195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c70627aa05ad7%3A0x620c3f1e4c9721ba!2sAptech%20Learning%20Latifabad%20Center!5e0!3m2!1sen!2s!4v1772763806064!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                      </div>
                </div>
             </div>
@@ -338,20 +371,13 @@
          <div class="footer">
             <div class="container">
                <div class="row">
-                  <div class="col-md-8 offset-md-4">
-                     <form class="bottom_form">
-                        <h3>Newsletter</h3>
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="sub_btn">subscribe</button>
-                     </form>
-                  </div>
+                  
                </div>
                <div class="row">
                   <div class="col-xl-6 col-md-12">
                      <div class="row">
                         <div class="col-md-7 padd_bottom">
                            <div class="heading3">
-                              <a href="#"><img src="../asset/frontend/images/elogo.png" alt="#"/></a>
                               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
                            </div>
                         </div>
@@ -402,9 +428,9 @@
                   </div>
                </div>
             </div>
-            <div class="copyright">
+            <div class="copyright ">
                <div class="container">
-                  <div class="row">
+                  <div class="row bg-primary">
                      <div class="col-md-12">
                         <p>&copy; All Rights Reserved.Elegent Salon </a></p>
                      </div>

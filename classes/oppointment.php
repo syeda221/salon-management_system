@@ -91,7 +91,7 @@ class SalonBookingSystem {
 
 
     /* ======================================
-       ADMIN ASSIGN + CONFIRM
+       ADMIN PANELPANELPANELASSIGN + CONFIRM
     ====================================== */
 public function assignAndConfirm($appointment_id, $staff_id){
 
@@ -245,12 +245,11 @@ public function getConfirmedAppointments(){
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'qunootzehra21@gmail.com';
-        $mail->Password   = 'xxsjkceslyolevok';
+        $mail->Username   = 'salonelegent@gmail.com';
+        $mail->Password   = 'bwtdngefdbdvqtvf';
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
-
-        $mail->setFrom('qunootzehra@gmail.com','Salon Booking');
+        $mail->setFrom('salonelegent@gmail.com','Salon Booking');
         $mail->addAddress($to);
 
         $mail->isHTML(true);
@@ -262,5 +261,48 @@ public function getConfirmedAppointments(){
     }catch(Exception $e){
         echo "Email error: ".$mail->ErrorInfo;
     }
+}
+public function completeAfterPayment($appointment_id){
+
+    // 1️⃣ Get appointment + client
+    $data = $this->getAppointment($appointment_id);
+
+    if(!$data){
+        return "Appointment not found";
+    }
+
+    // 2️⃣ Update status + payment
+    $stmt = $this->conn->prepare("
+        UPDATE appointments
+        SET status='completed',
+            payment_status='paid',
+            paid_at=NOW()
+        WHERE id=?
+    ");
+    $stmt->execute([$appointment_id]);
+
+    // 3️⃣ Generate feedback link
+    $feedback_link = 
+    "http://localhost/try/common/feedback.php?appointment_id=".$appointment_id;
+
+    // 4️⃣ Email content
+    $message = "
+        <h2>Thank You For Visiting Us 💇‍♀️</h2>
+        <p>Hello ".$data['name']."</p>
+        <p>Your appointment has been completed.</p>
+        <p>Please click below to rate our service:</p>
+        <a href='$feedback_link'>Give Feedback</a>
+        <br><br>
+        Thank you ❤️
+    ";
+
+    // 5️⃣ Send email
+    $this->sendEmail(
+        $data['email'],
+        "Please Rate Your Experience",
+        $message
+    );
+
+    return true;
 }
 }

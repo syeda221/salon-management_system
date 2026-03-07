@@ -15,16 +15,16 @@ class users{
         return $q->fetchAll();
     }
 
-public function addusers($role_id,$user_img,$user_name,$user_email,$user_password){
+public function addusers($role_id,$user_img,$user_name,$user_email,$user_password,$user_phone){
 
     $user_password = password_hash($user_password, PASSWORD_DEFAULT);
 
     $q = $this->db->prepare("
-        INSERT INTO users(role_id,user_img,user_name,user_email,user_password)
-        VALUES(?,?,?,?,?)
+        INSERT INTO users(role_id,user_img,user_name,user_email,user_password,user_phone)
+        VALUES(?,?,?,?,?,?)
     ");
 
-    $q->execute([$role_id,$user_img,$user_name,$user_email,$user_password]);
+    $q->execute([$role_id,$user_img,$user_name,$user_email,$user_password,$user_phone]);
 
     // get last inserted user id
     $user_id = $this->db->lastInsertId();

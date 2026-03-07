@@ -38,6 +38,7 @@ class Payment {
         $update = $this->db->prepare("
             UPDATE appointments
             SET payment_status='paid',
+                status = 'completed',
                 paid_amount=?,
                 payment_method=?,
                 paid_at=NOW()

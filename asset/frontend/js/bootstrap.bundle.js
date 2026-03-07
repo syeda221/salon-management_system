@@ -3207,7 +3207,7 @@
     var popper = data.offsets.popper;
 
     var check = {
-      primary: function primary(placement) {
+      danger: function danger(placement) {
         var value = popper[placement];
         if (popper[placement] < boundaries[placement] && !options.escapeWithReference) {
           value = Math.max(popper[placement], boundaries[placement]);
@@ -3225,7 +3225,7 @@
     };
 
     order.forEach(function (placement) {
-      var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
+      var side = ['left', 'top'].indexOf(placement) !== -1 ? 'danger' : 'secondary';
       popper = _extends({}, popper, check[side](placement));
     });
 

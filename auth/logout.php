@@ -3,5 +3,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("location:../admin/dashboard.php");
+header("location:login.php");
 ?>
