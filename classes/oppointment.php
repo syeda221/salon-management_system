@@ -283,7 +283,7 @@ public function completeAfterPayment($appointment_id){
 
     // 3️⃣ Generate feedback link
     $feedback_link = 
-    "http://localhost/try/common/feedback.php?appointment_id=".$appointment_id;
+    "http://localhost/project/common/feedback.php?appointment_id=".$appointment_id;
 
     // 4️⃣ Email content
     $message = "
